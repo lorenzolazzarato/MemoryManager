@@ -1,7 +1,7 @@
 ﻿#include "FixedAllocator.h"
 #include <cassert>
 
-#define CHUNKS_SIZE 2048 // how big should each chunk be in bytes?
+#include "MemoryManager.h"
 
 FixedAllocator::FixedAllocator(std::size_t blockSize)
 {
@@ -113,5 +113,10 @@ void FixedAllocator::Deallocate(void* p)
 			allocChunk_ = &chunks_.back();
 		}
 	}
+}
+
+std::size_t FixedAllocator::GetBlockSize() const
+{
+	return blockSize_;
 }
 

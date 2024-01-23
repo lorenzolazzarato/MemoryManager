@@ -8,6 +8,7 @@ public:
 	FixedAllocator(std::size_t blockSize);
 	void* Allocate();
 	void Deallocate(void* p);
+	std::size_t GetBlockSize() const;
 private:
 	std::size_t blockSize_;
 	unsigned char numBlocks_;
